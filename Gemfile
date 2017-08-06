@@ -52,3 +52,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #devise
 gem 'devise', '>=3.3.0'
+
+#bootstrap-sass
+gem 'bootstrap-sass', '~> 3.3.6'
