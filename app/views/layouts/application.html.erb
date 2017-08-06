@@ -7,25 +7,38 @@
 		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
 	<body>
-		<!--Added flash msg-->
-		<% flash.each do |name,msg| %>
-		<!--Added alert class based on what type of alert it is-->
-		<%= content_tag(:div, msg, class:"alert alert-#{name}") %>
-		<% end %>
+		<header class="navbar navbar-default" role="navigation">
+			<div class="navbar-inner">
+				<div class="container">
+					<div id="logo" class="navbar-brand"><%= link_to "Raddit", root_path %></div>
+					<nav class="collapse navbar-collapse navbar-ex1-collapse">
+						<!--Conditional stmt to show if user has signed in or not-->
+						<%if user_signed_in?%>
+						<ul class="nav navbar-nav navbar-right">
+							<li><%= link_to 'Submit Link', new_link_path %></li>
+							<li><%= link_to 'Account', edit_user_registration_path %></li>
+							<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+						</ul>
+						<%else%>
+						<ul class="nav navbar-nav pull-right">
+							<li><%= link_to 'Sign up', new_user_registration_path %></li>
+							<li><%= link_to 'Sign in', new_user_session_path %></li>
+						</ul>
+						<%end%>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<div id="main" class="container">
+			<!--Added flash msg-->
+			<% flash.each do |name,msg| %>
+			<!--Added alert class based on what type of alert it is-->
+			<%= content_tag(:div, msg, class:"alert alert-#{name}") %>
+			<% end %>
+		</div>
 		
-		<!--Conditional stmt to show if user has signed in or not-->
-		<%if user_signed_in?%>
-		<ul>
-			<li><%= link_to 'Submit Link', new_link_path %></li>
-			<li><%= link_to 'Account', edit_user_registration_path %></li>
-			<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-		</ul>
-		<%else%>
-		<ul>
-			<li><%= link_to 'Sign up', new_user_registration_path %></li>
-			<li><%= link_to 'Sign in', new_user_session_path %></li>
-		</ul>
-		<%end%>
-		<%= yield %>
+		<div id="container" class="col-md-9 center-block">
+			<%= yield %>
+		</div>
 	</body>
 </html>
