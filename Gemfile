@@ -55,3 +55,6 @@ gem 'devise', '>=3.3.0'
 
 #bootstrap-sass
 gem 'bootstrap-sass', '~> 3.3.6'
+
+#jquery-rails
+gem 'jquery-rails'
