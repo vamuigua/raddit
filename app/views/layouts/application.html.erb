@@ -35,10 +35,10 @@
 			<!--Added alert class based on what type of alert it is-->
 			<%= content_tag(:div, msg, class:"alert alert-#{name}") %>
 			<% end %>
-		</div>
-		
-		<div id="container" class="col-md-9 center-block">
-			<%= yield %>
+			
+			<div id="container" class="col-md-9 center-block">
+				<%= yield %>
+			</div>
 		</div>
 	</body>
 </html>
