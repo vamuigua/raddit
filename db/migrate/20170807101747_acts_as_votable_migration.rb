@@ -1,4 +1,5 @@
-class ActsAsVotableMigration < ActiveRecord::Migration
+class ActsAsVotableMigration < ActiveRecord::Migration[5.1]
+  def change
   def self.up
     create_table :votes do |t|
 
@@ -24,4 +25,5 @@ class ActsAsVotableMigration < ActiveRecord::Migration
   def self.down
     drop_table :votes
   end
+end
 end
