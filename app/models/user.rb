@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   #create relationship btwn user and link
   has_many :links
+  has_many :comments
 end
