@@ -69,15 +69,19 @@ class LinksController < ApplicationController
   #upvote method
   def upvote
     @link = Link.find(params[:id])
+    #assign upvote to current user
     @link.upvote_by current_user
-    redirect_to :back #back redirects the current user to the page they where currentyl on
+    #back redirects the current user to the page they where currently on
+    redirect_back(fallback_location: root_path)
   end
 
   #downvote method/action
   def downvote
     @link = Link.find(params[:id])
+    #assign downvote to current user
     @link.downvote_by current_user
-    redirect_to :back #back redirects the current user to the page they where currentyl on
+    #back redirects the current user to the page they where currently on
+    redirect_back(fallback_location: root_path) 
   end
 
   private
