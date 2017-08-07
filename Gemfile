@@ -61,3 +61,6 @@ gem 'jquery-rails'
 
 #acts_as_votable
 gem 'acts_as_votable', '~> 0.10.0'
+
+#simple_form 
+gem 'simple_form'
